@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arena Villa Ubud</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMzM1LjAwMDAwMHB0IiBoZWlnaHQ9IjE5Ni4wMDAwMDBwdCIgdmlld0JveD0iMCAwIDMzNS4wMDAwMDAgMTk2LjAwMDAwMCIKIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiPgoKPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTk2LjAwMDAwMCkgc2NhbGUoMC4xMDAwMDAsLTAuMTAwMDAwKSIKZmlsbD0iIzAwMDAwMCIgc3Ryb2tlPSJub25lIj4KPHBhdGggZD0iTTEzODAgMTgyMiBjLTE0IC0xIC0zNSAtNSAtNDggLTggLTI4IC02IC0xOTQgLTE1MiAtMTg2IC0xNjUgMyAtNQoxOTcgLTkgNDY3IC05IGw0NjEgMCAzODYgLTM5MiBjMjI5IC0yMzIgMzk4IC0zOTcgNDE3IC00MDUgNDAgLTE2IDE5OSAtMTgKMjA5IC0yIDggMTQgLTk0MiA5NjcgLTk3MyA5NzUgLTIyIDYgLTY4NyAxMSAtNzMzIDZ6Ii8+CjxwYXRoIGQ9Ik0xMjYyIDE1NTAgYy0xNDMgLTIwIC0yODkgLTc0IC0zOTkgLTE0NyAtMTAzIC02OCAtNjU2IC01NTAgLTY0NwotNTY1IDMgLTQgMzUgLTggNzIgLTggMTgyIDAgMjg5IDQ0IDQ0MiAxODEgMTM4IDEyNCAyMTUgMTc5IDMyOCAyMzcgOTkgNTEKMjcyIDExNyAyNzIgMTA0IDAgLTQgLTM1IC0xOSAtNzggLTM1IC0xNzMgLTYxIC0zNzIgLTIyMiAtNDYwIC0zNzIgLTY3IC0xMTUKLTcwIC0xMTAgODggLTExMCAyMTcgMSAzOTIgNTQgNTU1IDE3MCA2MSA0MyA1MzUgNTE4IDUzNSA1MzUgMCA2IC03NSAxMCAtMTg4CjEwIC0xMDQgMCAtMjQ5IDIgLTMyMyA0IC03NCAzIC0xNjIgMSAtMTk3IC00eiIvPgo8cGF0aCBkPSJNMTg3MiAxMjIxIGMtOSAtNSAtMTIgLTI5IC0xMCAtODIgbDMgLTc0IDgzIC0zIDgyIC0zIDAgODAgYzAgNjMgLTMKODAgLTE2IDg1IC0yMyA5IC0xMjcgNyAtMTQyIC0zeiIvPgo8cGF0aCBkPSJNMjA5MyAxMjIzIGMtOSAtMyAtMTMgLTMwIC0xMyAtODQgbDAgLTgwIDgzIDMgODIgMyAzIDY4IGM0IDg5IC00Cjk3IC04MiA5NiAtMzMgMCAtNjcgLTMgLTczIC02eiIvPgo8cGF0aCBkPSJNMTg2NyAxMDAzIGMtNCAtMyAtNyAtMzkgLTcgLTc5IDAgLTgyIDIgLTg0IDg1IC04NCA4NCAwIDg1IDEgODUgOTEKbDAgNzkgLTc4IDAgYy00MyAwIC04MiAtMyAtODUgLTd6Ii8+CjxwYXRoIGQ9Ik0yMDgyIDkyOCBsMyAtODMgNjggLTMgYzkyIC00IDk5IDMgOTUgOTIgbC0zIDcxIC04MyAzIC04MyAzIDMgLTgzeiIvPgo8cGF0aCBkPSJNODkwIDcyOSBjLTE3MCAtMTkgLTM0OCAtNzMgLTUxMCAtMTU0IC04MyAtNDEgLTg1IC00MyAtNzggLTUwIDMgLTMKNTYgOCAxMTkgMjUgMTY4IDQ0IDMwMiA2MSA0OTQgNjIgMjUwIDIgMzc3IC0yMiA3MTcgLTEzNyAyNjggLTkxIDM4OCAtMTE2CjU3MyAtMTIyIDIzOCAtOCA0MDcgMzIgNTkwIDEzOSA4NSA1MCAxOTYgMTM1IDIwMyAxNTUgMiA3IC0zNCAtNyAtODAgLTMxCi0xODUgLTk4IC0zNTYgLTEzOSAtNTc4IC0xMzkgLTIyMyAwIC0zOTUgMzYgLTY4MCAxNDMgLTg1IDMxIC0xOTUgNjcgLTI0NSA3OAotMTY1IDM4IC0zNTcgNTAgLTUyNSAzMXoiLz4KPHBhdGggZD0iTTU5MCA0MjcgYzAgLTk5IDEyIC0xMTcgNzggLTExNyA1OCAwIDcyIDIzIDcyIDEyMiAwIDEwNCAtMTggMTAxCi0yMiAtMyAtMyAtODYgLTE2IC0xMTAgLTUyIC05NiAtMTMgNSAtMTYgMjIgLTE2IDkyIGwwIDg1IC0zMCAwIC0zMCAwIDAgLTgzeiIvPgo8cGF0aCBkPSJNNzcwIDQxMCBsMCAtMTAwIDY1IDAgYzUyIDAgNjkgNCA4NSAyMCAxMSAxMSAyMCAyNSAyMCAzMSAwIDIxIC0yMQo0OSAtMzggNDkgLTEzIDAgLTEyIDMgNiAxNiAyNiAxOCAyOCA0NiA2IDY4IC0xMSAxMSAtMzUgMTYgLTgwIDE2IGwtNjQgMCAwCi0xMDB6IG05OCA1MSBjMyAtMjEgLTExIC00MCAtMzAgLTQxIC01IDAgLTggMTYgLTggMzYgMCAyOCAzIDM1IDE4IDMyIDkgLTIKMTkgLTE0IDIwIC0yN3ogbS0zIC02NCBjMjQgLTE4IDEzIC02NyAtMTUgLTY3IC0xNyAwIC0yMCA3IC0yMCA0MCAwIDQzIDYgNDgKMzUgMjd6Ii8+CjxwYXRoIGQ9Ik05NjAgNDI3IGMwIC05NyAxMyAtMTE3IDczIC0xMTcgNjEgMCA3NyAyNSA3NyAxMjAgMCAxMDUgLTE4IDEwNAotMjIgLTEgLTMgLTg2IC0xNiAtMTEwIC01MiAtOTYgLTEzIDUgLTE2IDIyIC0xNiA5MiBsMCA4NSAtMzAgMCAtMzAgMCAwIC04M3oiLz4KPHBhdGggZD0iTTExNDAgNDA5IGwwIC0xMDEgNjUgNCBjODEgNSA5NyAxOSAxMDMgOTIgNCA0OCAyIDU3IC0yMSA4MCAtMjIgMjIKLTM1IDI2IC04NyAyNiBsLTYwIDAgMCAtMTAxeiBtMTA0IDY1IGMxMSAtMjggNiAtMTIwIC02IC0xMzIgLTI5IC0yOSAtMzggLTEzCi0zOCA2OCAwIDcyIDIgODAgMTkgODAgMTAgMCAyMiAtNyAyNSAtMTZ6Ii8+CjwvZz4KPC9zdmc+Cg==">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #f7f4ef;
+    --dark: #1a1a18;
+    --muted: #6b6b62;
+    --accent: #8b7355;
+    --leaf: #4a6741;
+    --border: rgba(26,26,24,0.1);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--dark); font-weight: 300; line-height: 1.7; }
+  
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(247,244,239,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-icon { width: 36px; height: 36px; }
+  .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 2rem; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-links a { text-decoration: none; color: var(--muted); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--dark); }
+  
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-left { padding: 12rem 4rem 6rem 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 6vw, 80px); font-weight: 300; line-height: 1.0; margin-bottom: 1.5rem; }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 15px; color: var(--muted); max-width: 380px; margin-bottom: 3rem; line-height: 1.8; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--dark); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: transparent; color: var(--dark); font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--dark); }
+  .hero-right { background: #d4cfc6; position: relative; overflow: hidden; }
+  .hero-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: var(--muted); }
+  .hero-img-placeholder svg { opacity: 0.3; }
+  .hero-img-placeholder p { font-size: 13px; opacity: 0.6; }
+  .hero-badge { position: absolute; bottom: 2.5rem; left: 2.5rem; background: var(--cream); padding: 16px 20px; border-left: 3px solid var(--leaf); }
+  .hero-badge-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--dark); }
+  .hero-badge-label { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+
+  section { padding: 6rem; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 300; margin-bottom: 1.5rem; }
+  .section-body { color: var(--muted); font-size: 15px; max-width: 560px; }
+
+  .about { background: white; display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+  .about-img { background: #ccc9c0; min-height: 480px; position: relative; }
+  .about-content { padding: 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .about-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
+  .about-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--accent); }
+  .about-stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+
+  .rooms { background: var(--cream); }
+  .rooms-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+  .rooms-grid { display: grid; grid-template-columns: 1fr; gap: 2px; max-width: 520px; }
+  .room-card { background: white; overflow: hidden; }
+  .room-img { height: 220px; background: #d0ccc4; display: flex; align-items: center; justify-content: center; position: relative; }
+  .room-img-text { font-size: 12px; color: var(--muted); opacity: 0.5; }
+  .room-tag { position: absolute; top: 12px; left: 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--dark); color: var(--cream); padding: 4px 10px; }
+  .room-body { padding: 1.5rem; }
+  .room-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 0.5rem; }
+  .room-desc { font-size: 13px; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.7; }
+  .room-amenities { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+  .amenity-tag { font-size: 11px; color: var(--muted); border: 0.5px solid var(--border); padding: 4px 10px; letter-spacing: 0.04em; }
+  .room-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 0.5px solid var(--border); }
+  .room-price-label { font-size: 11px; color: var(--muted); }
+  .room-cta { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 0.5px solid var(--accent); padding-bottom: 1px; }
+
+  .amenities { background: white; }
+  .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 3rem; }
+  .amenity-item { text-align: center; }
+  .amenity-icon { width: 48px; height: 48px; margin: 0 auto 1rem; color: var(--leaf); }
+  .amenity-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; margin-bottom: 0.4rem; }
+  .amenity-desc { font-size: 13px; color: var(--muted); }
+
+  .reviews { background: var(--dark); color: var(--cream); }
+  .reviews .section-eyebrow { color: rgba(247,244,239,0.4); }
+  .reviews .section-title { color: var(--cream); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .review-card { border: 0.5px solid rgba(247,244,239,0.1); padding: 2rem; }
+  .review-stars { display: flex; gap: 3px; margin-bottom: 1rem; }
+  .star { width: 12px; height: 12px; background: var(--accent); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+  .review-text { font-size: 17px; color: rgba(247,244,239,0.7); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; font-family: 'Cormorant Garamond', serif; }
+  .review-author { font-size: 12px; color: rgba(247,244,239,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+  .reviews-score { display: flex; align-items: center; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid rgba(247,244,239,0.1); }
+  .score-big { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .score-detail { font-size: 13px; color: rgba(247,244,239,0.5); }
+  .score-detail strong { color: rgba(247,244,239,0.8); font-weight: 400; }
+
+  .location { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+  .location-content { padding: 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .location-map { background: #c8c4bb; min-height: 480px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; opacity: 0.6; flex-direction: column; gap: 8px; }
+  .location-detail { margin-top: 2rem; font-size: 14px; color: var(--muted); line-height: 2; }
+  .location-detail strong { color: var(--dark); font-weight: 400; display: block; }
+
+  .booking-cta { background: var(--leaf); color: var(--cream); padding: 5rem 6rem; text-align: center; }
+  .booking-cta .section-eyebrow { color: rgba(247,244,239,0.5); text-align: center; }
+  .booking-cta .section-title { color: var(--cream); text-align: center; margin-bottom: 0.75rem; }
+  .booking-cta-sub { color: rgba(247,244,239,0.7); font-size: 15px; margin-bottom: 2.5rem; }
+  .ota-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .ota-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: rgba(247,244,239,0.1); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(247,244,239,0.3); cursor: pointer; transition: all 0.2s; }
+  .ota-btn:hover { background: rgba(247,244,239,0.2); }
+  .ota-btn-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  footer { background: var(--dark); color: rgba(247,244,239,0.5); padding: 2.5rem 6rem; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  footer a { color: rgba(247,244,239,0.5); text-decoration: none; }
+  footer a:hover { color: var(--cream); }
+
+  .wa-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; width: 52px; height: 52px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2rem 3rem; }
+    .hero-right { min-height: 280px; }
+    section { padding: 4rem 2rem; }
+    .about, .location { grid-template-columns: 1fr; }
+    .about-content, .location-content { padding: 3rem 2rem; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .booking-cta { padding: 4rem 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="data:image/jpeg;base64,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3/BNP4mfH/8AaT8R/EXw7r/hOz0rUTZGC31S5uknBhtoYm3BIHHLRtjDHgjpXbfHn9jP46ftgax4dtvij4z8FeF/Cuju8sdl4Pgu7mSV2wGdvPCAttG0HOFBPynJz94UUAcl8J/hZ4f+Cnw80TwV4WtWtND0mDyYVkO53JJZ5HbA3O7FmY4xljjA4HW0UUAFFFFABRRRQAUdKKKADpSOiyIyMoZWGCpGQaWigDjtb+DHw+8S7jrHgXw1qu7r9u0e3mz9dyGuSuv2P/gbe58z4Q+CgT/zx0K2j/8AQUFevUUAeOQ/sa/AuD7vwi8HHv8APo8Lf+hLXR6N+z38LPDuDpXw28IacV6NaaFaxn81SvQKKAIrW0gsbdILaGO3gQYSKJQqqPQAcCpaKKAFzikoooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP//Z" style="width:36px;height:36px;object-fit:contain;" alt="Arena Villa logo">
+    <span class="nav-logo-text">Arena Villa · Ubud</span>
+  </div>
+  <div class="nav-links">
+    <a href="#rooms">Rooms</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#location">Location</a>
+    <a href="#book" style="color: var(--accent);">Book Now</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Villa · Ubud, Bali</p>
+    <h1 class="hero-title">Where Jungle<br>Meets <em>Stillness</em></h1>
+    <p class="hero-sub">Nestled in Peliatan, Ubud — Arena Villa offers an intimate retreat surrounded by Bali's natural beauty, steps from art galleries and rice terraces.</p>
+    <div class="hero-cta">
+      <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="btn-primary">Book Your Stay</a>
+      <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="btn-outline">Explore Rooms</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6b6b62" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <p>Hero photo — villa exterior</p>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-num">18</div>
+      <div class="hero-badge-label">Verified Guest Reviews</div>
+    </div>
+  </div>
+</div>
+
+<div class="about" id="about">
+  <div class="about-img">
+    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--muted);">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <p style="font-size:12px;opacity:0.4;">Villa garden photo</p>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">A Private Villa<br>in the Heart of Ubud</h2>
+    <p class="section-body">Arena Villa is a carefully curated retreat in Peliatan, one of Ubud's most serene villages. With lush tropical gardens, traditional Balinese architecture, and thoughtful modern comforts — every detail is designed to reconnect you with nature and yourself.</p>
+    <div class="about-stats">
+      <div>
+        <div class="about-stat-num">18</div>
+        <div class="about-stat-label">Guest reviews</div>
+      </div>
+      <div>
+        <div class="about-stat-num">4/5 ★</div>
+        <div class="about-stat-label">Average score</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="rooms" id="rooms">
+  <div class="rooms-header">
+    <div>
+      <p class="section-eyebrow">Accommodation</p>
+      <h2 class="section-title">Our Villas</h2>
+    </div>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <div class="room-img">
+        <span class="room-tag">Villa 1</span>
+        <p class="room-img-text">Photo placeholder</p>
+      </div>
+      <div class="room-body">
+        <h3 class="room-name">Garden Villa</h3>
+        <p class="room-desc">A serene villa facing the tropical garden, blending indoor comfort with outdoor living.</p>
+        <div class="room-amenities">
+          <span class="amenity-tag">Private Pool</span>
+          <span class="amenity-tag">Free WiFi</span>
+          <span class="amenity-tag">Air-Con</span>
+          <span class="amenity-tag">Ensuite Bath</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price-label">Book via Booking.com</div>
+          <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="room-cta">Book Now →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="amenities" id="amenities">
+  <p class="section-eyebrow">What We Offer</p>
+  <h2 class="section-title">Villa Amenities</h2>
+  <div class="amenities-grid">
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M4 20V10l8-7 8 7v10"/><path d="M9 20v-5h6v5"/></svg>
+      <p class="amenity-name">Private Pool</p>
+      <p class="amenity-desc">Each villa features its own plunge pool surrounded by tropical greenery.</p>
+    </div>
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <p class="amenity-name">Prime Location</p>
+      <p class="amenity-desc">Steps from Ubud's galleries, markets, and sacred Monkey Forest.</p>
+    </div>
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <p class="amenity-name">Free High-Speed WiFi</p>
+      <p class="amenity-desc">Stay connected with reliable internet throughout the property.</p>
+    </div>
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      <p class="amenity-name">24-Hour Service</p>
+      <p class="amenity-desc">Our team is always on hand for any requests, day or night.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <p class="section-eyebrow">Guest Voices</p>
+  <h2 class="section-title">What Our Guests Say</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="review-text">"Paradise villa 🥰✨ I loved everything. This is by far the best place I have stayed in Bali!! Asih, her family & staff are so welcoming. The villa is like your own slice of paradise — so quiet and serene, you can hear the jungle. The pool is exceptional, the bed is sooo comfy, and the breakfast is incredible. Do not miss out on this slice of luxury in the jungle, it's pure magic ✨"</p>
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:0.5px solid rgba(247,244,239,0.1);">
+        <p class="review-author" style="margin-bottom:4px;">— Megan · United Kingdom</p>
+        <p style="font-size:11px; color:rgba(247,244,239,0.3); letter-spacing:0.05em;">Solo traveler · 8 nights · February 2026</p>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="review-text">"Fabulous. The host let me check in 4 hours early! Staff arranged a motorbike, ATV and taxi services. The breakfast variety was incredible — huge portions of both Balinese and American food. The villa is a bit away from the tourist center but that's what makes it special. Will definitely miss this secret gem in Ubud."</p>
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:0.5px solid rgba(247,244,239,0.1);">
+        <p class="review-author" style="margin-bottom:4px;">— Jingxin · China</p>
+        <p style="font-size:11px; color:rgba(247,244,239,0.3); letter-spacing:0.05em;">Couple · 3 nights · February 2026</p>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="review-text">"Excellent little find! Asih was very welcoming and could not do enough to help us. The villa was beautiful and well equipped. The included breakfast was amazing every morning. Lovely private pool, good wi-fi, and a hidden gem on the outskirts of Ubud. We would go back if in the area again ❤️"</p>
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:0.5px solid rgba(247,244,239,0.1);">
+        <p class="review-author" style="margin-bottom:4px;">— Paul · United Kingdom</p>
+        <p style="font-size:11px; color:rgba(247,244,239,0.3); letter-spacing:0.05em;">Couple · 3 nights · February 2026</p>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-score">
+    <div class="score-big">4/5</div>
+    <div>
+      <div class="score-detail"><strong>Very Good</strong> — based on 18 reviews</div>
+    </div>
+  </div>
+</section>
+
+<div class="location" id="location">
+  <div class="location-content">
+    <p class="section-eyebrow">Find Us</p>
+    <h2 class="section-title">Peliatan,<br>Ubud</h2>
+    <p class="section-body">Nestled in a quiet lane in Peliatan village — one of Ubud's most authentic and beloved neighbourhoods.</p>
+    <div class="location-detail">
+      <strong>Address</strong>Jl. Gunung Sari, Peliatan, Ubud,<br>Gianyar, Bali 80571, Indonesia
+    </div>
+    <div style="margin-top:2rem;">
+      <a href="https://www.google.com/maps/search/Arena+Villa+Ubud+Peliatan" target="_blank" class="btn-primary" style="display:inline-flex;">Get Directions →</a>
+    </div>
+  </div>
+  <div class="location-map">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6b6b62" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    <p>Map / aerial photo placeholder</p>
+  </div>
+</div>
+
+<div class="booking-cta" id="book">
+  <p class="section-eyebrow">Reserve Your Villa</p>
+  <h2 class="section-title">Ready to Escape to Ubud?</h2>
+  <p class="booking-cta-sub">Book directly through Booking.com — secure, easy, and instant confirmation.</p>
+  <div class="ota-buttons">
+    <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="ota-btn">
+      <span class="ota-btn-dot" style="background:#003580;"></span>
+      Book on Booking.com
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div style="display:flex;gap:1.5rem;">
+    <a href="#rooms">Rooms</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#location">Location</a>
+    <a href="#book">Book Now</a>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/" target="_blank" title="WhatsApp us">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.478 2 2 6.478 2 12.004a9.946 9.946 0 0 0 1.523 5.307L2 22l4.812-1.499A9.951 9.951 0 0 0 12.004 22C17.53 22 22 17.522 22 12.004 22 6.478 17.53 2 12.004 2z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+</a>
+
+</body>
+</html>
