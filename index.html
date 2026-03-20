@@ -131,6 +131,31 @@
     .booking-cta { padding: 4rem 2rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
   }
+
+/* Mode khusus HP rasio 9:16 */
+@media (max-width: 900px) {
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black; /* opsional biar ada frame */
+  }
+
+  /* Wrapper untuk membatasi rasio */
+  body > * {
+    width: 100%;
+    max-width: 420px; /* lebar HP */
+    aspect-ratio: 9 / 16;
+    overflow-y: auto;
+    background: var(--cream);
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+}
 </style>
 </head>
 <body>
@@ -401,4 +426,7 @@ document.addEventListener('keydown', e => {
 </script>
 
 </body>
+
+
+
 </html>
