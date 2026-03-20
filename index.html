@@ -132,7 +132,88 @@
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
   }
 
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 600px) {
+  /* NAVBAR - hamburger menu */
+  nav { padding: 0.9rem 1.2rem; }
+  .nav-logo-text { font-size: 15px; }
+  .hamburger { display: flex; }
 
+  /* HERO */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 6rem 1.5rem 2.5rem; }
+  .hero-title { font-size: 42px; }
+  .hero-sub { font-size: 14px; }
+  .hero-right { min-height: 260px; order: -1; }
+  .hero-badge { bottom: 1rem; left: 1rem; padding: 12px 16px; }
+  .hero-badge-num { font-size: 22px; }
+  .hero-cta { flex-direction: column; }
+  .btn-primary, .btn-outline { width: 100%; justify-content: center; padding: 14px 20px; }
+
+  /* ABOUT */
+  .about { grid-template-columns: 1fr; }
+  .about-img { min-height: 260px; }
+  .about-content { padding: 2.5rem 1.5rem; }
+  .about-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .about-stat-num { font-size: 28px; }
+
+  /* ROOMS */
+  .rooms { padding: 3rem 1.5rem; }
+  .rooms-grid { max-width: 100%; }
+  .room-card-inner { grid-template-columns: 1fr; }
+  .room-img { min-height: 260px; }
+  .room-body { padding: 1.25rem; }
+  .room-name { font-size: 20px; }
+
+  /* GALLERY MODAL */
+  .gallery-modal-content { width: 95vw; max-height: 85vh; }
+  .gallery-close { top: 0.5rem; right: 0.75rem; font-size: 24px; }
+  .gallery-prev, .gallery-next { width: 36px; height: 36px; font-size: 16px; }
+  .gallery-counter { font-size: 12px; padding: 4px 10px; }
+
+  /* AMENITIES */
+  .amenities { padding: 3rem 1.5rem; }
+  .amenities-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .amenity-icon { width: 36px; height: 36px; }
+  .amenity-name { font-size: 15px; }
+  .amenity-desc { font-size: 12px; }
+
+  /* REVIEWS */
+  .reviews { padding: 3rem 1.5rem; }
+  .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .review-card { padding: 1.5rem; }
+  .review-text { font-size: 15px; }
+  .score-big { font-size: 48px; }
+
+  /* LOCATION */
+  .location { grid-template-columns: 1fr; }
+  .location-content { padding: 2.5rem 1.5rem; }
+  .location-map { min-height: 240px; }
+
+  /* BOOKING CTA */
+  .booking-cta { padding: 3rem 1.5rem; }
+  .ota-btn { width: 100%; justify-content: center; padding: 14px 20px; }
+
+  /* FOOTER */
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; font-size: 12px; }
+
+  /* SECTION TITLES */
+  .section-title { font-size: 28px; }
+}
+
+/* Hamburger button */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+.mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99; background: var(--cream); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--dark); text-decoration: none; letter-spacing: 0.05em; }
+.mobile-nav a:last-child { color: var(--accent); }
+.mobile-nav-close { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 28px; background: none; border: none; cursor: pointer; color: var(--dark); }
 </style>
 </head>
 <body>
@@ -149,7 +230,20 @@
     <a href="#location">Location</a>
     <a href="#book" style="color: var(--accent);">Book Now</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile nav drawer -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose">&#x2715;</button>
+  <a href="#rooms" onclick="closeMobileNav()">Rooms</a>
+  <a href="#amenities" onclick="closeMobileNav()">Amenities</a>
+  <a href="#reviews" onclick="closeMobileNav()">Reviews</a>
+  <a href="#location" onclick="closeMobileNav()">Location</a>
+  <a href="#book" onclick="closeMobileNav()">Book Now</a>
+</div>
 
 <div class="hero">
   <div class="hero-left">
@@ -402,6 +496,26 @@ document.addEventListener('keydown', e => {
 });
 </script>
 
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+
+  mobileNavClose.addEventListener('click', closeMobileNav);
+
+  function closeMobileNav() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 </body>
 
 
