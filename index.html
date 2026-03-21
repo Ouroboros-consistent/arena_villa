@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arena Villa Ubud</title>
+<link rel="icon" type="image/svg+xml" href="images/image_1.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #f7f4ef;
+    --dark: #1a1a18;
+    --muted: #6b6b62;
+    --accent: #8b7355;
+    --leaf: #4a6741;
+    --border: rgba(26,26,24,0.1);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--dark); font-weight: 300; line-height: 1.7; }
+  
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(247,244,239,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-icon { width: 36px; height: 36px; }
+  .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 2rem; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-links a { text-decoration: none; color: var(--muted); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--dark); }
+  
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-left { padding: 12rem 4rem 6rem 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); margin-bottom: 1.5rem; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 6vw, 80px); font-weight: 300; line-height: 1.0; margin-bottom: 1.5rem; }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 15px; color: var(--muted); max-width: 380px; margin-bottom: 3rem; line-height: 1.8; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--dark); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: transparent; color: var(--dark); font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--dark); }
+  .hero-right { background: #d4cfc6; position: relative; overflow: hidden; }
+  .hero-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: var(--muted); }
+  .hero-img-placeholder svg { opacity: 0.3; }
+  .hero-img-placeholder p { font-size: 13px; opacity: 0.6; }
+  .hero-badge { position: absolute; bottom: 2.5rem; left: 2.5rem; background: var(--cream); padding: 16px 20px; border-left: 3px solid var(--leaf); }
+  .hero-badge-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--dark); }
+  .hero-badge-label { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+
+  section { padding: 6rem; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 300; margin-bottom: 1.5rem; }
+  .section-body { color: var(--muted); font-size: 15px; max-width: 560px; }
+
+  .about { background: white; display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+  .about-img { background: #ccc9c0; min-height: 480px; position: relative; }
+  .about-content { padding: 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .about-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
+  .about-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--accent); }
+  .about-stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+
+  .rooms { background: var(--cream); padding: 6rem; }
+  .rooms-header { margin-bottom: 3rem; }
+  .room-card { background: white; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+  .room-img { min-height: 480px; background: #d0ccc4; position: relative; overflow: hidden; }
+  .room-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .room-img:hover img { transform: scale(1.03); }
+  .room-tag { position: absolute; top: 12px; left: 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--dark); color: var(--cream); padding: 4px 10px; }
+  .room-body { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .room-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; margin-bottom: 1rem; }
+  .room-desc { font-size: 14px; color: var(--muted); margin-bottom: 2rem; line-height: 1.8; }
+  .room-amenities { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+  .amenity-tag { font-size: 11px; color: var(--muted); border: 0.5px solid var(--border); padding: 6px 12px; letter-spacing: 0.04em; }
+  .room-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1.5rem; border-top: 0.5px solid var(--border); }
+  .room-price-label { font-size: 11px; color: var(--muted); }
+  .room-cta { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 0.5px solid var(--accent); padding-bottom: 1px; }
+
+  .amenities { background: white; }
+  .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; margin-top: 3rem; }
+  .amenity-item { text-align: center; }
+  .amenity-icon { width: 48px; height: 48px; margin: 0 auto 1rem; color: var(--leaf); }
+  .amenity-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; margin-bottom: 0.4rem; }
+  .amenity-desc { font-size: 13px; color: var(--muted); }
+
+  .reviews { background: var(--dark); color: var(--cream); }
+  .reviews .section-eyebrow { color: rgba(247,244,239,0.4); }
+  .reviews .section-title { color: var(--cream); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .review-card { border: 0.5px solid rgba(247,244,239,0.1); padding: 2rem; }
+  .review-stars { display: flex; gap: 3px; margin-bottom: 1rem; }
+  .star { width: 12px; height: 12px; background: var(--accent); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+  .review-text { font-size: 17px; color: rgba(247,244,239,0.7); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; font-family: 'Cormorant Garamond', serif; }
+  .review-author { font-size: 12px; color: rgba(247,244,239,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
+  .reviews-score { display: flex; align-items: center; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid rgba(247,244,239,0.1); }
+  .score-big { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .score-detail { font-size: 13px; color: rgba(247,244,239,0.5); }
+  .score-detail strong { color: rgba(247,244,239,0.8); font-weight: 400; }
+
+  .location { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+  .location-content { padding: 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .location-map { background: #c8c4bb; min-height: 480px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; opacity: 0.6; flex-direction: column; gap: 8px; }
+  .location-detail { margin-top: 2rem; font-size: 14px; color: var(--muted); line-height: 2; }
+  .location-detail strong { color: var(--dark); font-weight: 400; display: block; }
+
+  .booking-cta { background: var(--leaf); color: var(--cream); padding: 5rem 6rem; text-align: center; }
+  .booking-cta .section-eyebrow { color: rgba(247,244,239,0.5); text-align: center; }
+  .booking-cta .section-title { color: var(--cream); text-align: center; margin-bottom: 0.75rem; }
+  .booking-cta-sub { color: rgba(247,244,239,0.7); font-size: 15px; margin-bottom: 2.5rem; }
+  .ota-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .ota-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: rgba(247,244,239,0.1); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(247,244,239,0.3); cursor: pointer; transition: all 0.2s; }
+  .ota-btn:hover { background: rgba(247,244,239,0.2); }
+  .ota-btn-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  footer { background: var(--dark); color: rgba(247,244,239,0.5); padding: 2.5rem 6rem; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  footer a { color: rgba(247,244,239,0.5); text-decoration: none; }
+  footer a:hover { color: var(--cream); }
+
+  .wa-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; width: 52px; height: 52px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2rem 3rem; }
+    .hero-right { min-height: 280px; }
+    section { padding: 4rem 2rem; }
+    .about, .location { grid-template-columns: 1fr; }
+    .about-content, .location-content { padding: 3rem 2rem; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .booking-cta { padding: 4rem 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+
+/* Mode khusus HP rasio 9:16 */
+@media (max-width: 900px) {
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black; /* opsional biar ada frame */
+  }
+
+  /* Wrapper untuk membatasi rasio */
+  body > * {
+    width: 100%;
+    max-width: 420px; /* lebar HP */
+    aspect-ratio: 9 / 16;
+    overflow-y: auto;
+    background: var(--cream);
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="images/image_1.jpg" style="width:36px;height:36px;object-fit:contain;" alt="Arena Villa logo">
+    <span class="nav-logo-text">Arena Villa · Ubud</span>
+  </div>
+  <div class="nav-links">
+    <a href="#rooms">Rooms</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#location">Location</a>
+    <a href="#book" style="color: var(--accent);">Book Now</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Villa · Ubud, Bali</p>
+    <h1 class="hero-title">Where Jungle<br>Meets <em>Stillness</em></h1>
+    <p class="hero-sub">Nestled in Peliatan, Ubud — Arena Villa offers an intimate retreat surrounded by Bali's natural beauty, steps from art galleries and rice terraces.</p>
+    <div class="hero-cta">
+      <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="btn-primary">Book Your Stay</a>
+      <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="btn-outline">Explore Rooms</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="images/image_2.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Arena Villa Ubud aerial view">
+    <div class="hero-badge">
+      <div class="hero-badge-num">18</div>
+      <div class="hero-badge-label">Verified Guest Reviews</div>
+    </div>
+  </div>
+</div>
+
+<div class="about" id="about">
+  <div class="about-img">
+    <img src="images/image_3.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Arena Villa floating breakfast">
+  </div>
+  <div class="about-content">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">A Private Villa<br>in the Heart of Ubud</h2>
+    <p class="section-body">Arena Villa is a carefully curated retreat in Peliatan, one of Ubud's most serene villages. With lush tropical gardens, traditional Balinese architecture, and thoughtful modern comforts — every detail is designed to reconnect you with nature and yourself.</p>
+    <div class="about-stats">
+      <div>
+        <div class="about-stat-num">18</div>
+        <div class="about-stat-label">Guest reviews</div>
+      </div>
+      <div>
+        <div class="about-stat-num">4/5 ★</div>
+        <div class="about-stat-label">Average score</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="rooms" id="rooms">
+  <div class="rooms-header">
+    <div>
+      <p class="section-eyebrow">Accommodation</p>
+      <h2 class="section-title">Our Villas</h2>
+    </div>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card">
+      <div class="room-img" onclick="openGallery(0)" style="cursor:pointer;position:relative;overflow:hidden;">
+        <img src="images/image_4.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Villa 1">
+        <span class="room-tag"></span>
+        <div style="position:absolute;bottom:10px;right:10px;background:rgba(26,26,24,0.6);color:#f7f4ef;font-size:11px;letter-spacing:0.08em;padding:5px 10px;">VIEW GALLERY ↗</div>
+      </div>
+      <div class="room-body">
+        <h3 class="room-name">Garden Villa</h3>
+        <p class="room-desc">A serene villa facing the tropical garden, blending indoor comfort with outdoor living.</p>
+        <div class="room-amenities">
+          <span class="amenity-tag">Private Pool</span>
+          <span class="amenity-tag">Free WiFi</span>
+          <span class="amenity-tag">Air-Con</span>
+          <span class="amenity-tag">Ensuite Bath</span>
+        </div>
+        <div class="room-footer">
+          <div class="room-price-label">Book via Booking.com</div>
+          <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="room-cta">Book Now →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="amenities" id="amenities">
+  <p class="section-eyebrow">What We Offer</p>
+  <h2 class="section-title">Villa Amenities</h2>
+  <div class="amenities-grid">
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M4 20V10l8-7 8 7v10"/><path d="M9 20v-5h6v5"/></svg>
+      <p class="amenity-name">Private Pool</p>
+      <p class="amenity-desc">Each villa features its own plunge pool surrounded by tropical greenery.</p>
+    </div>
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <p class="amenity-name">Prime Location</p>
+      <p class="amenity-desc">Steps from Ubud's galleries, markets, and sacred Monkey Forest.</p>
+    </div>
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <p class="amenity-name">Free High-Speed WiFi</p>
+      <p class="amenity-desc">Stay connected with reliable internet throughout the property.</p>
+    </div>
+    <div class="amenity-item">
+      <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      <p class="amenity-name">24-Hour Service</p>
+      <p class="amenity-desc">Our team is always on hand for any requests, day or night.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <p class="section-eyebrow">Guest Voices</p>
+  <h2 class="section-title">What Our Guests Say</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="review-text">"Paradise villa 🥰✨ I loved everything. This is by far the best place I have stayed in Bali!! Asih, her family & staff are so welcoming. The villa is like your own slice of paradise — so quiet and serene, you can hear the jungle. The pool is exceptional, the bed is sooo comfy, and the breakfast is incredible. Do not miss out on this slice of luxury in the jungle, it's pure magic ✨"</p>
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:0.5px solid rgba(247,244,239,0.1);">
+        <p class="review-author" style="margin-bottom:4px;">— Megan · United Kingdom</p>
+        <p style="font-size:11px; color:rgba(247,244,239,0.3); letter-spacing:0.05em;">Solo traveler · 8 nights · February 2026</p>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="review-text">"Fabulous. The host let me check in 4 hours early! Staff arranged a motorbike, ATV and taxi services. The breakfast variety was incredible — huge portions of both Balinese and American food. The villa is a bit away from the tourist center but that's what makes it special. Will definitely miss this secret gem in Ubud."</p>
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:0.5px solid rgba(247,244,239,0.1);">
+        <p class="review-author" style="margin-bottom:4px;">— Jingxin · China</p>
+        <p style="font-size:11px; color:rgba(247,244,239,0.3); letter-spacing:0.05em;">Couple · 3 nights · February 2026</p>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+      <p class="review-text">"Excellent little find! Asih was very welcoming and could not do enough to help us. The villa was beautiful and well equipped. The included breakfast was amazing every morning. Lovely private pool, good wi-fi, and a hidden gem on the outskirts of Ubud. We would go back if in the area again ❤️"</p>
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:0.5px solid rgba(247,244,239,0.1);">
+        <p class="review-author" style="margin-bottom:4px;">— Paul · United Kingdom</p>
+        <p style="font-size:11px; color:rgba(247,244,239,0.3); letter-spacing:0.05em;">Couple · 3 nights · February 2026</p>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-score">
+    <div class="score-big">4/5</div>
+    <div>
+      <div class="score-detail"><strong>Very Good</strong> — based on 18 reviews</div>
+    </div>
+  </div>
+</section>
+
+<div class="location" id="location">
+  <div class="location-content">
+    <p class="section-eyebrow">Find Us</p>
+    <h2 class="section-title">Peliatan,<br>Ubud</h2>
+    <p class="section-body">Nestled in a quiet lane in Peliatan village — one of Ubud's most authentic and beloved neighbourhoods.</p>
+    <div class="location-detail">
+      <strong>Address</strong>Jl. Gunung Sari, Peliatan, Ubud,<br>Gianyar, Bali 80571, Indonesia
+    </div>
+    <div style="margin-top:2rem;">
+      <a href="https://www.google.com/maps/search/Arena+Villa+Ubud+Peliatan" target="_blank" class="btn-primary" style="display:inline-flex;">Get Directions →</a>
+    </div>
+  </div>
+  <div class="location-map">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6b6b62" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    <p>Map / aerial photo placeholder</p>
+  </div>
+</div>
+
+<div class="booking-cta" id="book">
+  <p class="section-eyebrow">Reserve Your Villa</p>
+  <h2 class="section-title">Ready to Escape to Ubud?</h2>
+  <p class="booking-cta-sub">Book directly through Booking.com — secure, easy, and instant confirmation.</p>
+  <div class="ota-buttons">
+    <a href="https://www.booking.com/Share-Cl3e9f" target="_blank" class="ota-btn">
+      <span class="ota-btn-dot" style="background:#003580;"></span>
+      Book on Booking.com
+    </a>
+  </div>
+</div>
+
+<footer>
+
+  <div style="display:flex;gap:1.5rem;">
+    <a href="#rooms">Rooms</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#location">Location</a>
+    <a href="#book">Book Now</a>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/" target="_blank" title="WhatsApp us">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.478 2 2 6.478 2 12.004a9.946 9.946 0 0 0 1.523 5.307L2 22l4.812-1.499A9.951 9.951 0 0 0 12.004 22C17.53 22 22 17.522 22 12.004 22 6.478 17.53 2 12.004 2z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+</a>
+
+
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(10,10,8,0.95);align-items:center;justify-content:center;flex-direction:column;">
+  <button onclick="closeLightbox()" style="position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:#f7f4ef;font-size:28px;cursor:pointer;line-height:1;opacity:0.7;">✕</button>
+  <button onclick="prevImg()" style="position:absolute;left:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;color:#f7f4ef;font-size:36px;cursor:pointer;opacity:0.7;">‹</button>
+  <button onclick="nextImg()" style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);background:none;border:none;color:#f7f4ef;font-size:36px;cursor:pointer;opacity:0.7;">›</button>
+  <img id="lb-img" src="" style="max-width:88vw;max-height:82vh;object-fit:contain;display:block;">
+  <div style="margin-top:1rem;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;" id="lb-thumbs"></div>
+  <p id="lb-counter" style="color:rgba(247,244,239,0.4);font-size:12px;letter-spacing:0.1em;margin-top:0.75rem;font-family:'Jost',sans-serif;"></p>
+</div>
+
+<script>
+const galleryImgs = [
+  "images/image_6.jpg",
+  "images/image_7.jpg",
+  "images/image_8.jpg",
+  "images/image_9.jpg",
+  "images/image_10.jpg",
+  "images/image_11.jpg",
+  "images/image_12.jpg",
+  "images/image_13.jpg",
+];
+let current = 0;
+
+function openGallery(idx) {
+  current = idx;
+  document.getElementById('lightbox').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  renderThumbs();
+  showImg();
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function showImg() {
+  document.getElementById('lb-img').src = galleryImgs[current];
+  document.getElementById('lb-counter').textContent = (current+1) + ' / ' + galleryImgs.length;
+  document.querySelectorAll('.lb-thumb').forEach((t,i) => {
+    t.style.opacity = i === current ? '1' : '0.45';
+    t.style.outline = i === current ? '2px solid #f7f4ef' : 'none';
+  });
+}
+
+function nextImg() { current = (current + 1) % galleryImgs.length; showImg(); }
+function prevImg() { current = (current - 1 + galleryImgs.length) % galleryImgs.length; showImg(); }
+
+function renderThumbs() {
+  const c = document.getElementById('lb-thumbs');
+  c.innerHTML = '';
+  galleryImgs.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'lb-thumb';
+    img.style = 'width:56px;height:42px;object-fit:cover;cursor:pointer;border-radius:2px;transition:opacity 0.2s;';
+    img.onclick = () => { current = i; showImg(); };
+    c.appendChild(img);
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('lightbox').style.display === 'flex') {
+    if (e.key === 'ArrowRight') nextImg();
+    if (e.key === 'ArrowLeft') prevImg();
+    if (e.key === 'Escape') closeLightbox();
+  }
+});
+</script>
+
+</body>
+
+
+
+</html>
