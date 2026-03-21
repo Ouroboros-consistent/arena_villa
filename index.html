@@ -277,7 +277,7 @@
         <div class="about-stat-label">Guest reviews</div>
       </div>
       <div>
-        <div class="about-stat-num" id="stat-score-about">4/5 ★</div>
+        <div class="about-stat-num" id="stat-score-about">9/10 ★</div>
         <div class="about-stat-label">Average score</div>
       </div>
     </div>
@@ -374,7 +374,7 @@
     </div>
   </div>
   <div class="reviews-score">
-    <div class="score-big" id="stat-score-reviews">4/5</div>
+    <div class="score-big" id="stat-score-reviews">9/10</div>
     <div>
       <div class="score-detail"><strong>Very Good</strong> — based on <span id="stat-reviews-footer">18</span> reviews</div>
     </div>
@@ -393,16 +393,9 @@
       <a href="https://www.google.com/maps/search/Arena+Villa+Ubud+Peliatan" target="_blank" class="btn-primary" style="display:inline-flex;">Get Directions →</a>
     </div>
   </div>
-  <div class="location-map" style="padding:0;opacity:1;background:none;">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d500!2d115.275999!3d-8.510306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOCozMCczNy4xIlMgMTE1wrAxNiczMy42IkU!5e1!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
-      width="100%"
-      height="100%"
-      style="border:0;min-height:480px;display:block;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+  <div class="location-map">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6b6b62" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    <p>Map / aerial photo placeholder</p>
   </div>
 </div>
 
@@ -521,22 +514,27 @@ document.addEventListener('keydown', e => {
 </script>
 
 <script>
-  fetch('stats.json')
+  const STATS_URL = 'https://raw.githubusercontent.com/Ouroboros-consistent/check/main/data/hotel_data.json';
+
+  fetch(STATS_URL)
     .then(r => r.json())
     .then(data => {
-      const reviews = data.guest_reviews;
-      const score = data.average_score;
+      // Ambil data terbaru dari history (entry paling akhir)
+      const latest = data.history[data.history.length - 1];
 
-      // Update all review count mentions
-      document.getElementById('stat-reviews-hero').textContent = reviews;
-      document.getElementById('stat-reviews-about').textContent = reviews;
-      document.getElementById('stat-reviews-footer').textContent = reviews;
+      const rating = latest.rating;
+      const reviewRaw = latest.review_count; // e.g. "18 ulasan"
+      const reviewNum = reviewRaw.replace(/[^0-9]/g, ''); // ambil angka saja
 
-      // Update score mentions
-      document.getElementById('stat-score-about').textContent = score + ' ★';
-      document.getElementById('stat-score-reviews').textContent = score;
+      // Update semua elemen
+      document.getElementById('stat-reviews-hero').textContent = reviewNum;
+      document.getElementById('stat-reviews-about').textContent = reviewNum;
+      document.getElementById('stat-reviews-footer').textContent = reviewNum;
+
+      document.getElementById('stat-score-about').textContent = rating + '/10 ★';
+      document.getElementById('stat-score-reviews').textContent = rating + '/10';
     })
-    .catch(() => console.log('stats.json not found, using defaults'));
+    .catch(err => console.log('Gagal fetch stats:', err));
 </script>
 
 </body>
