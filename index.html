@@ -257,7 +257,7 @@
   <div class="hero-right">
     <img src="images/image_2.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" alt="Arena Villa Ubud aerial view">
     <div class="hero-badge">
-      <div class="hero-badge-num">18</div>
+      <div class="hero-badge-num" id="stat-reviews-hero">18</div>
       <div class="hero-badge-label">Verified Guest Reviews</div>
     </div>
   </div>
@@ -273,11 +273,11 @@
     <p class="section-body">Arena Villa is a carefully curated retreat in Peliatan, one of Ubud's most serene villages. With lush tropical gardens, traditional Balinese architecture, and thoughtful modern comforts — every detail is designed to reconnect you with nature and yourself.</p>
     <div class="about-stats">
       <div>
-        <div class="about-stat-num">18</div>
+        <div class="about-stat-num" id="stat-reviews-about">18</div>
         <div class="about-stat-label">Guest reviews</div>
       </div>
       <div>
-        <div class="about-stat-num">4/5 ★</div>
+        <div class="about-stat-num" id="stat-score-about">4/5 ★</div>
         <div class="about-stat-label">Average score</div>
       </div>
     </div>
@@ -374,9 +374,9 @@
     </div>
   </div>
   <div class="reviews-score">
-    <div class="score-big">4/5</div>
+    <div class="score-big" id="stat-score-reviews">4/5</div>
     <div>
-      <div class="score-detail"><strong>Very Good</strong> — based on 18 reviews</div>
+      <div class="score-detail"><strong>Very Good</strong> — based on <span id="stat-reviews-footer">18</span> reviews</div>
     </div>
   </div>
 </section>
@@ -512,6 +512,26 @@ document.addEventListener('keydown', e => {
     document.body.style.overflow = '';
   }
 </script>
+
+<script>
+  fetch('stats.json')
+    .then(r => r.json())
+    .then(data => {
+      const reviews = data.guest_reviews;
+      const score = data.average_score;
+
+      // Update all review count mentions
+      document.getElementById('stat-reviews-hero').textContent = reviews;
+      document.getElementById('stat-reviews-about').textContent = reviews;
+      document.getElementById('stat-reviews-footer').textContent = reviews;
+
+      // Update score mentions
+      document.getElementById('stat-score-about').textContent = score + ' ★';
+      document.getElementById('stat-score-reviews').textContent = score;
+    })
+    .catch(() => console.log('stats.json not found, using defaults'));
+</script>
+
 </body>
 
 
