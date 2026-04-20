@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arenavilla.obr.my.id/sitemap.xml
